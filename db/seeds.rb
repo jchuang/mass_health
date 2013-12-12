@@ -20,7 +20,7 @@ end
 
 CSV.foreach(Rails.root + 'db/data/mass_health_data.csv', headers: true) do |row|
 
-  unless row[0].nil? || row[1].nil?
+  unless row[0].nil? || row[0] == 'Massachusetts Total' || row[1].nil?
 
     TownHealthRecord.create(
       town_name: row[0],
