@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  town_name: MyString
+  population: 1
+  youth_population: 1
+  senior_population: 1
+  per_capita_income: 1
+  poverty_population: 1
+  poverty_percent: 1.5
+  prenatal_percent: 1.5
+  c_section_percent: 1.5
+  infant_deaths: 1
+  infant_mortality: 1.5
+  low_birthweight_percent: 1.5
+  multiple_births_percent: 1.5
+  public_prenatal_percent: 1.5
+  teen_birth_percent: 1.5
+
+two:
+  town_name: MyString
+  population: 1
+  youth_population: 1
+  senior_population: 1
+  per_capita_income: 1
+  poverty_population: 1
+  poverty_percent: 1.5
+  prenatal_percent: 1.5
+  c_section_percent: 1.5
+  infant_deaths: 1
+  infant_mortality: 1.5
+  low_birthweight_percent: 1.5
+  multiple_births_percent: 1.5
+  public_prenatal_percent: 1.5
+  teen_birth_percent: 1.5
