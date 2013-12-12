@@ -23,8 +23,8 @@ LIMIT 5;
 -- Holyoke
 
 SELECT town_name FROM town_health_records
-WHERE town_name <> 'Boston' AND town_name <> 'Becket'
-  AND town_name <> 'Beverly' AND teen_birth_percent IS NOT NULL
+WHERE town_name != 'Boston' AND town_name != 'Becket'
+  AND town_name != 'Beverly' AND teen_birth_percent IS NOT NULL
 ORDER BY teen_birth_percent DESC
 LIMIT 1;
 
@@ -32,6 +32,6 @@ LIMIT 1;
 -- Worcester
 
 SELECT town_name FROM town_health_records
-WHERE town_name <> 'Boston' AND infant_deaths IS NOT NULL
+WHERE town_name != 'Boston' AND infant_deaths IS NOT NULL
 ORDER BY infant_deaths DESC
 LIMIT 1;
