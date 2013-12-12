@@ -2,27 +2,42 @@ require 'csv'
 
 TownHealthRecord.delete_all
 
+def float_or_nil(string)
+  if string == '' || string == 'NA'
+    nil
+  else
+    string.to_f
+  end
+end
+
+def integer_or_nil(string)
+  if string == '' || string == 'NA'
+    nil
+  else
+    string.gsub(/\D/,'').to_i
+  end
+end
+
 CSV.foreach(Rails.root + 'db/data/mass_health_data.csv', headers: true) do |row|
 
   unless row[0].nil? || row[1].nil?
 
     TownHealthRecord.create(
       town_name: row[0],
-      population: row[1].gsub(/\W/,'').to_i,
-      youth_population: row[2].gsub(/\W/,'').to_i,
-      senior_population: row[3].gsub(/\W/,'').to_i,
-      per_capita_income: row[4].gsub(/\W/,'').to_i,
-      poverty_population: row[5].gsub(/\W/,'').to_i,
-      poverty_percent: row[6].to_f,
-      prenatal_percent: row[7].to_f,
-      c_section_percent: row[8].to_f,
-      infant_deaths: row[9].to_i,
-      infant_mortality: row[10].to_f,
-      low_birthweight_percent: row[11].to_f,
-      multiple_births_percent: row[12].to_f,
-      public_prenatal_percent: row[13].to_f,
-      teen_birth_percent: row[14].to_f
+      population: integer_or_nil(row[1]),
+      youth_population: integer_or_nil(row[2]),
+      senior_population: integer_or_nil(row[3]),
+      per_capita_income: integer_or_nil(row[4]),
+      poverty_population: integer_or_nil(row[5]),
+      poverty_percent: float_or_nil(row[6]),
+      prenatal_percent: float_or_nil(row[7]),
+      c_section_percent: float_or_nil(row[8]),
+      infant_deaths: integer_or_nil(row[9]),
+      infant_mortality: float_or_nil(row[10]),
+      low_birthweight_percent: float_or_nil(row[11]),
+      multiple_births_percent: float_or_nil(row[12]),
+      public_prenatal_percent: float_or_nil(row[13]),
+      teen_birth_percent: float_or_nil(row[14]),
       )
   end
-
 end
